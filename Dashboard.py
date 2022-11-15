@@ -308,12 +308,7 @@ if __name__ == '__main__':
     """ Fingerprint section and basic info in middle frame """
     """ Fingerprint section and basic info in middle frame """
     """ Fingerprint section and basic info in middle frame """
-    """ Fingerprint section and basic info in middle frame """
-    """ Fingerprint section and basic info in middle frame """
-    """ Fingerprint section and basic info in middle frame """
     # Image Widget for middle frame in x=84 y=48 size=276x334
-    print("Before ReadFinger")
-
     newFingerPrint = PhotoImage(file='image 1.png')
     # label = Label(middle, image=img, width=250, height=303, bg='white')
     labelFingerPrint = Label(middle, image=newFingerPrint, width=240, height=291, bg='white')
@@ -329,11 +324,6 @@ if __name__ == '__main__':
     btn = Button(middle, text='Clear', font=('arial', 15), width=10, height=1, bg='green', fg='white', cursor='hand2',
                  command=updateData)
     btn.place(x=220, y=348)
-    #
-    # # lable1 below buttons
-    # t1 = str(10)
-    # label1 = Label(middle, text='Balance :$' + t1)
-    # label1.place(x=84, y=408)
 
     # Label Right of image in x=420 y=48 size=200x48
     label = Label(middle, text='Basic Information', font=('arial', 20), fg='black', bg='white')
@@ -379,8 +369,6 @@ if __name__ == '__main__':
 
     font_size = 12
 
-    """Bottom Render"""
-    """Bottom Render"""
     """Bottom Render"""
     """Bottom Render"""
     """Bottom Render"""
@@ -442,13 +430,7 @@ if __name__ == '__main__':
     # Label Right to M Count in x=756 y=240 size=276x48 "F Count"
     labelFCount = Label(bottom, text='Female Count', font=('arial', font_size), fg='black', bg='white')
     labelFCount.place(x=756, y=144)
-    # Label below Sexuality Count in x=756 y=288 size=276x48 "Jobs"
-    # labelJobVital = Label(bottom, text='Jobs', font=('arial', font_size), fg='black', bg='white')
-    # labelJobVital.place(x=756, y=192)
-    # # Label below Jobs in x=756 y=336 size=276x48 "person name - job"
-    # labelJob = Label(bottom, text='person name - job', font=('arial', font_size), fg='black', bg='white')
-    # labelJob.place(x=756, y=240)
-    # (x=756, y=288)
+
     # Section 4
     # Section 4 Label in x=1092 y=48 size=276x48 "Marriage Certificate"
     label = Label(bottom, text='Marriage Certificate', font=('arial', 14), fg='black', bg='white')
@@ -470,9 +452,5 @@ if __name__ == '__main__':
     # Label below Husband Name in x=1092 y=240 size=276x48 "Wife Name"
     labelWifeName = Label(bottom, text='Wife Name', font=('arial', font_size), fg='black', bg='white')
     labelWifeName.place(x=1092, y=192)
-
-    # # Entry Right of image in x=420 y=144 size=200x48
-    # entry = Entry(middle, font=('arial', 15), width=30)
-    # entry.place(x=420, y=144)
 
     root.mainloop()

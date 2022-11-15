@@ -2,8 +2,8 @@ import os
 import cv2
 
 DATA_PATH = "Data"
-DATASET_PATH = DATA_PATH + "/SelectedData/"
-TESTDATA_PATH = DATA_PATH + "/Altered/SelectedData/"
+DATASET_PATH = DATA_PATH + "/SelectedData/"             # Path to the dataset
+TESTDATA_PATH = DATA_PATH + "/Altered/SelectedData/"    # Path input images
 
 
 def matchfingerprint(inputfilename, samplePath=None):
@@ -19,18 +19,17 @@ def matchfingerprint(inputfilename, samplePath=None):
     best_score = counter = 0
     filename = image = kp1 = kp2 = mp = None
     print("Starting...")
-    print("DATASET_PATH ",DATASET_PATH)
-    print("DATASET_PATH ",DATASET_PATH)
-    print()
-    print("INPUT FILENAME ",inputfilename)
-    print("SAMPLE PATH ",samplePath)
-    print()
-    print("Current Directory ",os.getcwd())
-    print()
+    # print("DATASET_PATH ",DATASET_PATH)
+    # print("DATASET_PATH ",DATASET_PATH)
+    # print()
+    # print("INPUT FILENAME ",inputfilename)
+    # print("SAMPLE PATH ",samplePath)
+    # print()
+    # print("Current Directory ",os.getcwd())
+    # print()
 
     for file in os.listdir(DATASET_PATH):
         counter += 1
-
         fingerprint_img = cv2.imread(DATASET_PATH + file)
         sift = cv2.SIFT_create()
         keypoints_1, des1 = sift.detectAndCompute(sample, None)

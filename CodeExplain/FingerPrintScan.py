@@ -30,13 +30,17 @@ def matchfingerprint(inputfilename, samplePath=None):
 
     for file in os.listdir(DATASET_PATH):
         counter += 1
-
         fingerprint_img = cv2.imread(DATASET_PATH + file)
-        sift = cv2.SIFT_create()
-        keypoints_1, des1 = sift.detectAndCompute(sample, None)
-        keypoints_2, des2 = sift.detectAndCompute(fingerprint_img, None)
+        sift = cv2.SIFT_create()  # Scale Invariant Feature Transform
+        keypoints_1, des1 = sift.detectAndCompute(sample, None) # des1 is the descriptor of the sample image
+        keypoints_2, des2 = sift.detectAndCompute(fingerprint_img, None) # des2 is the descriptor of the image in the dataset
+        # descriptor is a 128-dimensional vector that describes the keypoint in a particular image
         # fast library for approx best match KNN
         matches = cv2.FlannBasedMatcher({"algorithm": 1, "trees": 10}, {}).knnMatch(des1, des2, k=2)
+        # FLANN is a library for performing fast approximate nearest neighbor searches in large datasets and
+        # for high dimensional features. It contains a collection of algorithms we found to work best for
+        # nearest neighbor search and a system for automatically choosing the best algorithm and optimum
+        # parameters depending on the dataset.
 
         match_points = []
         for p, q in matches:
