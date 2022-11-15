@@ -1,0 +1,4 @@
+opencv_python==4.5.5.62
+pandas==1.4.1
+randominfo==2.0.2
+randomtimestamp==2.2

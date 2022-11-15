@@ -1,0 +1,23 @@
+# ---- UserID, Name, Password, DOB, Phone, JoinedAt
+c.execute('CREATE TABLE IF NOT EXISTS user (UserID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Name TEXT NOT NULL, Password TEXT NOT NULL);')
+
+# -- Person Table for General Public
+# ---- PersonID, NIC, Name, Email, Password, Phone, Address, ImageID
+c.execute('CREATE TABLE IF NOT EXISTS person (PersonID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, NIC TEXT NOT NULL, Name TEXT NOT NULL, Email TEXT NOT NULL, Password TEXT NOT NULL, Phone TEXT NOT NULL, Address TEXT NOT NULL, ImageID INTEGER NOT NULL);')
+
+# -- Birth Certificate
+# ---- CertificateID, PersonID, DateOfBirth, MotherID, FatherID, GrandfatherID (Later Calculate Age)
+c.execute('CREATE TABLE IF NOT EXISTS birthcertificate (CertificateID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, PersonID TEXT NOT NULL, DateOfBirth TEXT NOT NULL, MotherID TEXT NOT NULL, FatherID TEXT NOT NULL, GrandfatherID TEXT NOT NULL);')
+
+# -- NIC Card
+# ---- PersonID, NIC, Name, OtherName, DateOfBirth, BirthLocation, Job, Address
+c.execute('CREATE TABLE IF NOT EXISTS niccard (PersonID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, NIC TEXT NOT NULL, Name TEXT NOT NULL, OtherName TEXT NOT NULL, DateOfBirth TEXT NOT NULL, BirthLocation TEXT NOT NULL, Job TEXT NOT NULL, Address TEXT NOT NULL);')
+
+# -- Vital Stats
+# ---- PersonID, FamilyCount, MaleCount, FemaleCount, TheirJobs
+c.execute('CREATE TABLE IF NOT EXISTS vitalstats (PersonID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, FamilyCount TEXT NOT NULL, GenderCount TEXT NOT NULL, TheirJobs TEXT NOT NULL);')
+
+# -- Marriage Certificate
+# ---- PersonID1, PersonID2, (PersonID1 and PersonID2 as Primary key) DateOfMarriage
+c.execute('CREATE TABLE IF NOT EXISTS marriagecertificate (PersonID1 INTEGER NOT NULL, PersonID2 INTEGER NOT NULL, DateOfMarriage TEXT NOT NULL, PRIMARY KEY (PersonID1, PersonID2));')
+
